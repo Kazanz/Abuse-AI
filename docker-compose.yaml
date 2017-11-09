@@ -1,0 +1,10 @@
+version: '2'
+services:
+  abuseai:
+    build:
+      context: .
+    ports:
+      - "5001:80"
+    network_mode: "host"
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1

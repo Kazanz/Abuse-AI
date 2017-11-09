@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ABUSE AI | Automated Abuse Complaint API</title>
+
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon"> 
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web:700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style>
+        body {
+          padding-top: 54px;
+        }
+        
+        @media (min-width: 992px) {
+          body {
+            padding-top: 56px;
+          }
+        }
+        
+        header.masthead {
+            background-color: black;
+            background-image: url('/static/img/pattern.png');
+            background-size: cover;
+        }
+        
+        header.masthead>.overlay {
+          padding: 5rem 0;
+          background: rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (min-width: 992px) {
+          header.masthead>.overlay {
+            padding: 10rem 0;
+          }
+        }
+        
+        .display-1 {
+            font-size: 3.5em;
+            line-height: 1.2em;
+            -webkit-font-feature-settings: "kern";
+            font-feature-settings: "kern";
+            -webkit-font-kerning: normal;
+            font-kerning: normal;
+            font-family: 'Titillium Web', sans-serif;
+        }
+        
+        .display-3 {
+            line-height: 2em;
+            font-weight: 300;
+            -webkit-font-feature-settings: "kern";
+            font-feature-settings: "kern";
+            -webkit-font-kerning: normal;
+            font-kerning: normal;
+            font-size: 1.5em;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+        }
+        
+        .display-4 {
+            line-height: 2em;
+            font-weight: 100;
+            -webkit-font-feature-settings: "kern";
+            font-feature-settings: "kern";
+            -webkit-font-kerning: normal;
+            font-kerning: normal;
+            font-size: 1.5em;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        #navbar {
+            padding: 20px;
+        }
+       
+        #navbar, footer {
+            background-color: #11120f !important;
+        }
+
+        .navbar, section, header {
+            border-bottom: 1px solid #656565;
+        }
+        
+        .dark-bg {
+            background-color: black;
+        }
+        
+        .panel {
+            padding: 20px;
+            background-color: rgba(49, 49, 49, 0.4);
+            color: white;
+            border: 1px solid #656565;
+        }
+        
+        .panel-heading {
+            background-color: rgba(88, 88, 88, 0.4);
+        }
+        
+        section {
+            padding: 50px;
+        }
+
+        .hljs-attr {
+            color: white;
+        }
+
+        .hljs-string {
+            color: #1bc51b;
+        }
+
+        .hljs-number {
+            color: #4ce3ff;
+        }
+
+        .hljs {
+            background: none;
+        }
+
+        .panel {
+            height: 100%;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #1ac51b;
+            border-color: #84c184;
+            border-radius: 2px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .btn-primary:hover {
+            cursor: pointer;
+            color: #fff;
+            background-color: #12a500;
+            border-color: #006315;
+            box-shadow: 0 0 0 0.2rem rgba(0,255,31,.3);
+        }
+
+        #logo {
+            width: 3em;
+            margin-right: 30px;
+        }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#"><img id="logo" src="/static/img/logo.png" />ABUSE AI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/Kazanz/Abuse-AI">View Project on Github</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/swagger-ui"><button class="btn btn-primary">API Documentation</button></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <center>
+                    <h1 class="display-1 text-white">Automate Your DataCenter's<br />Abuse Complaint Workflow</h1>
+                    <h2 class="display-4 text-white">Classify incoming complaints & extract offending IPs</h2>
+                </center>
+                </div>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="dark-bg">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="display-3 text-white">POST email to API</h3>
+          </div>
+          <div class="col-md-6">
+            <h3 class="display-3 text-white">Receive classification</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                    Dear sir or madam,<br><br>
+                    This information has been generated out of our comprehensive real time database, tracking worldwide phishing URI's<br><br>
+                    If your review this list of offending site(s), please do this carefully, pay attention for redirects also!<br>
+                    Also, please consider this particular machines may have a root kit installed !<br>
+                    So simply deleting some files or dirs or disabling cgi may not really solve the issue !<br><br>
+                    Advice: The appearance of a Virus Site on a server means that someone intruded into the system. The server's owner should disconnect and not return the system into service until an audit is performed to ensure no data was lost, that all OS and internet software is up to date with the latest security fixes, and that any backdoors and other exploits left by the intruders are closed. Logs should be preserved and analyzed and, perhaps, the appropriate law enforcement agencies notified.<br><br>
+                    DO NOT JUST DELETE THE FILES. IF YOU DO NOT FIX THE SECURITY PROBLEM, THEY WILL BE BACK!<br><br>
+                    You may forward my information to law enforcement, CERTs, other responsible admins, or similar agencies<br><br>
+                    Suspect ip: 8.8.4.4
+              </div>
+            </div>     
+          </div>
+
+          <div class="col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                    <pre><code class="json">
+    {
+      "ips": [
+        "8.8.4.4"
+      ],
+      "predicted": "Malicious Content",
+      "confidence": {
+        "Malicious Activity": 0.014927970269260724,
+        "Malicious Content": 0.9573013184483615,
+        "Trademark Infringement": 0.027770711282377833
+      },
+    }
+                    </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+          <p class="m-0 text-center text-white"><a href="https://github.com/Kazanz/Abuse-AI">View on Github</a></p>
+        <p class="m-0 text-center text-white">Copyright &copy; Zach Kazanski</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+
+</html>
